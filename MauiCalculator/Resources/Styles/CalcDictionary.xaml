@@ -31,9 +31,24 @@
     </Style>
     <!--#endregion-->
     <!--#region Buttons-->
-    <Style TargetType="Button">
-        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource ButtonDarkText}, Light={StaticResource ButtonLightText}}" />
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource ButtonDarkBackground}, Light={StaticResource ButtonLightBackground}}" />
+    <Style x:Key="BaseButton" TargetType="Button">
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource DarkText}, Light={StaticResource LightText}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource DarkSecondary}, Light={StaticResource LightSecondary}}" />
+        <Setter Property="FontFamily" Value="SublimaLight" />
+        <Setter Property="FontSize" Value="25" />
+    </Style>
+    <Style BasedOn="{StaticResource BaseButton}" TargetType="Button" />
+    <Style
+        x:Key="YellowButton"
+        BasedOn="{StaticResource BaseButton}"
+        TargetType="Button">
+        <Setter Property="TextColor" Value="{StaticResource YellowColor}" />
+    </Style>
+    <Style
+        x:Key="RedButton"
+        BasedOn="{StaticResource BaseButton}"
+        TargetType="Button">
+        <Setter Property="TextColor" Value="{StaticResource RedColor}" />
     </Style>
     <!--#endregion-->
 </ResourceDictionary>
