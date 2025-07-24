@@ -22,4 +22,18 @@
         <Setter Property="FontSize" Value="50" />
     </Style>
     <!--#endregion-->
+
+    <!--#region BoxView-->
+    <Style Class="MainBoxView" TargetType="BoxView">
+        <Setter Property="Color" Value="{AppThemeBinding Dark={StaticResource DarkPrimary}, Light={StaticResource LightPrimary}}" />
+        <Setter Property="CornerRadius" Value="30,30,0,0" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+    </Style>
+    <!--#endregion-->
+    <!--#region Buttons-->
+    <Style TargetType="Button">
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource ButtonDarkText}, Light={StaticResource ButtonLightText}}" />
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource ButtonDarkBackground}, Light={StaticResource ButtonLightBackground}}" />
+    </Style>
+    <!--#endregion-->
 </ResourceDictionary>
