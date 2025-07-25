@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Dangl.Calculator;
 using System.Diagnostics;
 
 namespace MauiCalculator.ViewModels;
@@ -26,6 +27,7 @@ public partial class CalcPageViewModel : ObservableObject
     public void Backspace()
     {
         if (!string.IsNullOrEmpty(Formula))
+        {
             if (Formula[^1] == ' ' && Formula.Length > 2)
             {
                 Formula = Formula[0..(Formula.Length - 3)];
@@ -35,5 +37,17 @@ public partial class CalcPageViewModel : ObservableObject
                 Formula = Formula[0..(Formula.Length - 1)];
             }
         }
+    }
+
+    [RelayCommand]
+    public void Calculate()
+    {
+        if (string.IsNullOrEmpty(Formula))
+        {
+            return;
+        }
+
+        CalculationResult calculation = Calculator.Calculate(Formula);
+        Result = calculation.Result.ToString();
     }
 }
