@@ -20,9 +20,13 @@
                 RowDefinitions="*,*,*,*,*"
                 RowSpacing="15">
                 <!--#region Row 1-->
-                <Button Style="{StaticResource YellowButton}" Text="AC" />
+                <Button
+                    Command="{Binding ResetCommand}"
+                    Style="{StaticResource YellowButton}"
+                    Text="AC" />
                 <Button
                     Grid.Column="1"
+                    Command="{Binding BackspaceCommand}"
                     Style="{StaticResource YellowButton}"
                     Text="⌫" />
                 <Button
