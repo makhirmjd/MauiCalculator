@@ -14,4 +14,26 @@ public partial class CalcPageViewModel : ObservableObject
 
     [RelayCommand]
     public void Operation(string number) => Formula += number;
+
+    [RelayCommand]
+    public void Reset()
+    {
+        Formula = string.Empty;
+        Result = "0";
+    }
+
+    [RelayCommand]
+    public void Backspace()
+    {
+        if (!string.IsNullOrEmpty(Formula))
+            if (Formula[^1] == ' ' && Formula.Length > 2)
+            {
+                Formula = Formula[0..(Formula.Length - 3)];
+            }
+            else
+            {
+                Formula = Formula[0..(Formula.Length - 1)];
+            }
+        }
+    }
 }
