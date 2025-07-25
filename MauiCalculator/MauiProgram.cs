@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using MauiCalculator.ViewModels;
+using Microsoft.Extensions.Logging;
 
 namespace MauiCalculator
 {
@@ -21,7 +22,14 @@ namespace MauiCalculator
     		builder.Logging.AddDebug();
 #endif
 
+            ConfigureServices(builder.Services);
+
             return builder.Build();
+        }
+
+        private static void ConfigureServices(IServiceCollection services)
+        {
+            services.AddSingleton<CalcPageViewModel>();
         }
     }
 }
